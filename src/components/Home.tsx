@@ -1,12 +1,12 @@
 import { useCallback, useReducer, useRef } from "react";
 import { reducer } from "./states/reducer";
 import { Button, ButtonGroup, Input } from '@chakra-ui/react'
-import addLocalStorage from "./addLocalStorage";
 import { Grid, GridItem } from '@chakra-ui/react'
+import useLocalStorage from "./useLocalStorage";
 
 const Home = () => {
     const [todos, dispatch] = useReducer(reducer, [])
-    const [state, setState] = addLocalStorage("name", '')
+    const [state, setState] = useLocalStorage("name", '')
 
     const handleName = useRef<HTMLInputElement>(null)
     const handleEmail = useRef<HTMLInputElement>(null)
@@ -63,7 +63,7 @@ const Home = () => {
             <Grid templateColumns='repeat(5, 1fr)' gap={2}>
                 {
                     todos.map(todo =>
-                        <GridItem key={todo.id} colSpan={2}  bg='tomato'>
+                        <GridItem key={todo.id} colSpan={2} bg='tomato'>
                             <p>
                                 User Name: {todo.name}
                             </p>
@@ -73,23 +73,9 @@ const Home = () => {
                         </GridItem>
                     )
                 }
-                
+
             </Grid>
 
-
-            {/* 
-            {
-                todos.map(todo =>
-                    <div key={todo.id} >
-                        <p>
-                            User Name: {todo.name}
-                        </p>
-                        <p>User email: {todo.email}</p>
-                        <button onClick={() => deleteUser(todo.id)}>Delete</button>
-                        <Button onClick={() => deleteUser(todo.id)}>Cancel</Button>
-                    </div>
-                )
-            } */}
 
 
         </div >

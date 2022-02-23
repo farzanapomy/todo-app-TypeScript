@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 
 
-const addLocalStorage = (key: string, value: string) => {
+const useLocalStorage = (key: string, value: string) => {
     const [state, setState] = useState(() => {
 
         if (!value) {
@@ -34,4 +34,4 @@ const addLocalStorage = (key: string, value: string) => {
 
 };
 
-export default addLocalStorage;
+export default useLocalStorage;
