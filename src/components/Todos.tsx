@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useReducer, useRef } from "react";
 import { reducer } from "./states/reducer";
-import { Box, Button, ButtonGroup, Input, Text } from '@chakra-ui/react'
+import { Box, Button, Input } from '@chakra-ui/react'
 import { Container } from '@chakra-ui/react'
 import { useLocalStorage } from "./useLocalStorage";
 
@@ -32,18 +32,9 @@ const Todos = () => {
 
 
 
-    //save user in local storage 
     useEffect(() => {
         setValue(todos)
     }, [todos])
-
-
-
-
-
-    // useEffect(() => {
-    //     window.localStorage.setItem("todos", JSON.stringify(todos))
-    // }, [todos])
 
 
     // remove User 
